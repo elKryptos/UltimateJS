@@ -10,7 +10,9 @@ let b = 7;
 
 //incrementar
 console.log(++a);
+//incrementa de 1 pero no lo muestra en la console
 console.log(a++);
+//muestro el numero que ha sido incrementado que ha quedado en memoria
 console.log(a);
 
 

@@ -22,3 +22,8 @@ let resultado  = suma(3, 6, 1, 2, 3);
 console.log(resultado); 
 console.log(suma(5, 9));
 console.log(typeof suma); 
+
+function exeer (h){
+    return h + 2;
+}
+console.log(exeer(10));

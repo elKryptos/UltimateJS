@@ -10,3 +10,16 @@ let user = {
         console.log('recuperando clave...');
     }
 };
+
+
+let usuario = {
+    email: "sidney_1243@gmail.com",
+    nome: "hans",
+    edad: "31", 
+    direccion : {
+        paese: "Italia", 
+        indirizzo: "Via Filippo de Pisis 45"
+    }
+}
+
+console.log(usuario);
