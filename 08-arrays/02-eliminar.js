@@ -9,7 +9,7 @@ console.log(final, letras)
 const comienzo = letras.shift();
 console.log(comienzo, letras);
 
-//sirver para eliminar elementos al interno di un array, ver 01, agregar 
+//sirver para eliminar elementos al interno di un array, ver 01-agregar 
 //para mas detalles
 letras.splice(1, 2);
 console.log(letras);

@@ -12,7 +12,7 @@
 //para poder llarmarlo la llamo come si fuera una funcion 
 
 const hello = () =>{
-    return "hello world";
+    return "Hello world";
 }
 //esta sintaxis tiene la misma funcion de la que esta arriba, pero 
 //puedo usar de este modo solo si dentro della funcion lo que escribo es 
