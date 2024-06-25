@@ -1,5 +1,5 @@
 let arr1 = ['Nicola', 'Hans', 'Marco'];
-let msg = arr1.join(' ');
+let msg = arr1.join(', ');
 
 console.log(msg)
 
