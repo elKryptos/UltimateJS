@@ -1,4 +1,4 @@
-// todos los objetos que son creados en javascript contienen una propiedad
+ // todos los objetos que son creados en javascript contienen una propiedad
 // llamada constructor y esta propiedad non indica con que constructor 
 // fue creado el objeto
 
