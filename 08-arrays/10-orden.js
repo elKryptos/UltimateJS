@@ -2,7 +2,7 @@ let numeros = [15, 10, -3]
 
 // El metodo sort() sirve para ordenar los numero de menor a mayor
 numeros.sort();
-console.log(numeros)
+console.log(numeros);
 // El metodo reverse() sirve para ordenar de mayor a menor
 numeros.reverse();
 
@@ -25,6 +25,15 @@ console.log(lettere);
 // });
 // console.log(conMay);
 
-let users = [
-    { edad: 15, }
-]
+let usuarios = [
+    { edad: 15, nombre: 'Felipe' },
+    { edad: 25, nombre: 'Nicolas'},
+    { edad: 14, nombre: 'Poli'}
+];
+
+usuarios.sort((a,b) => {
+    if (a.edad < b.edad) return -1;
+    if (a.edad > b.edad) return 1;
+})
+
+console.log(usuarios)
