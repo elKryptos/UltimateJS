@@ -1,5 +1,5 @@
 const suma = (a, b) => {
-    return Array.from(arguments)
+    return Array.from(arguments)  //da error porque no tiene arguments
         .reduce((acc, el) => acc + el)
 }
 
