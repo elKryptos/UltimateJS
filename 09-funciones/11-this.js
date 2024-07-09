@@ -17,7 +17,7 @@ user.logout = function() {
 
 user.logout();
 
-function log()) {
+function log() {
     console.log(this)
 }
 
