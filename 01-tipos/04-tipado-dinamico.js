@@ -21,5 +21,6 @@ let nulo = null;
 console.log(typeof number);
 console.log(typeof nombre);
 console.log(typeof verdader);
+console.log(typeof falso);
 console.log(typeof undef);
 console.log(typeof nulo);

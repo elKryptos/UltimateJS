@@ -1,7 +1,7 @@
 /**
  * Tipi di dati
  * Primitivi: 
- * Number, String, Boolean, Undefined, Null
+ * number, string, boolean, undefined, null
  * De referencia: 
  * Array, Object, Functions, Clases 
  * 
