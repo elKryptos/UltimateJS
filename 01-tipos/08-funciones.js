@@ -8,6 +8,9 @@ function suma(){
     return 2 + 2;
 }
 
-// let resultado = suma();
+let resultado = suma();
+let test = saludar();
 
 console.log(suma());
+
+console.log(resultado);
