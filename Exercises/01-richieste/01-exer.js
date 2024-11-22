@@ -84,6 +84,23 @@ function dropDown() {
     }
 
     //document.getElementById("buttonSelect").addEventListener("click", dropDown);
+    const succesCallback = (position) => {
+        console.log(position)
+    }
+
+    const errorCallback = (error) => {
+        console.log(error)
+    }
+
+    navigator.geolocation.getCurrentPosition(
+        succesCallback,
+        errorCallback
+    )
+
+    
+
+
+    
 
 
 
