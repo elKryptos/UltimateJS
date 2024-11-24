@@ -84,18 +84,51 @@ function dropDown() {
     }
 
     //document.getElementById("buttonSelect").addEventListener("click", dropDown);
-    const succesCallback = (position) => {
-        console.log(position)
+    // const succesCallback = (position) => {
+    //     console.log(position)
+    // }
+
+    // const errorCallback = (error) => {
+    //     console.log(error)
+    // }
+
+    // navigator.geolocation.getCurrentPosition(
+    //     succesCallback,
+    //     errorCallback
+    // )
+
+
+
+    function onGeolocationSuccess(position) {
+        const latitude = position.coords.latitude
+        const longitude = position.coords.longitude
+
+        const mapsDiv = document.getElementById("maps")
+        mapsDiv.innerHTML =`
+            <p>Latitude: ${latitude}</p>
+            <p>Longitude: ${longitude}</p>
+            <a href="https://www.google.com/maps?q=${latitude},${longitude}" target="_blank">
+                Apri in Google Maps
+            </a>
+        `
     }
 
-    const errorCallback = (error) => {
-        console.log(error)
+    function onGeolocationError(error) {
+        const redirectUrl = "https://www.google.com";
+
+        if (error.code === error.PERMISSION_DENIED) {
+            window.location.href = redirectUrl;
+
+        } else {
+            alert("Si è verificato un errore nella geolocalizzazione!")
+        }
     }
 
-    navigator.geolocation.getCurrentPosition(
-        succesCallback,
-        errorCallback
-    )
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError)
+    } else {
+        alert("Il tuo browser non supporta la geolocalizzazione!")
+    }
 
     
 
