@@ -66,9 +66,6 @@ function control() {
 
 }
 
-    
-
-
 function dropDown() {
     let select = document.getElementById("nomi");
 
@@ -80,55 +77,65 @@ function dropDown() {
         option.textContent = persona.name; 
         console.log(persona.name)
         select.append(option)
-        });
-    }
-
-    //document.getElementById("buttonSelect").addEventListener("click", dropDown);
-    // const succesCallback = (position) => {
-    //     console.log(position)
-    // }
-
-    // const errorCallback = (error) => {
-    //     console.log(error)
-    // }
-
-    // navigator.geolocation.getCurrentPosition(
-    //     succesCallback,
-    //     errorCallback
-    // )
+    });
+}
 
 
 
-    function onGeolocationSuccess(position) {
-        const latitude = position.coords.latitude
-        const longitude = position.coords.longitude
+function onGeolocationSuccess(position) {
+    const latitude = position.coords.latitude
+    const longitude = position.coords.longitude
+    const mapsDiv = document.getElementById("maps")
+    mapsDiv.innerHTML =`
+        <p>Latitude: ${latitude}</p>
+        <p>Longitude: ${longitude}</p>
+        <a href="https://www.google.com/maps?q=${latitude},${longitude}" target="_blank">
+            Apri in Google Maps
+        </a>
+    `
+}
 
-        const mapsDiv = document.getElementById("maps")
-        mapsDiv.innerHTML =`
-            <p>Latitude: ${latitude}</p>
-            <p>Longitude: ${longitude}</p>
-            <a href="https://www.google.com/maps?q=${latitude},${longitude}" target="_blank">
-                Apri in Google Maps
-            </a>
-        `
-    }
-
-    function onGeolocationError(error) {
-        const redirectUrl = "https://www.google.com";
-
-        if (error.code === error.PERMISSION_DENIED) {
-            window.location.href = redirectUrl;
-
-        } else {
-            alert("Si è verificato un errore nella geolocalizzazione!")
-        }
-    }
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError)
+function onGeolocationError(error) {
+    const redirectUrl = "https://www.google.com";
+    if (error.code === error.PERMISSION_DENIED) {
+         window.location.href = redirectUrl;
     } else {
-        alert("Il tuo browser non supporta la geolocalizzazione!")
+        alert("Si è verificato un errore nella geolocalizzazione!", error.message)
     }
+}
+
+let positionTry = false
+let errorOccur = false
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                positionTry = true
+                onGeolocationSuccess(position)
+            },
+            (error) => {
+                errorOccur = true
+                onGeolocationError(error)
+            }
+        );
+    } else { 
+        console.error("Non supportato")
+    }
+
+const val = document.getElementById("geolo")
+const buttonPosizione = document.createElement("button")
+buttonPosizione.textContent = "Ottieni posizione!"
+buttonPosizione.id= "trigger"
+val.appendChild(buttonPosizione)
+
+buttonPosizione.addEventListener("click", function() {
+if (positionTry || errorOccur ) {
+    buttonPosizione.style.display = "none"
+} else {
+    console.warn("La posizione non è ancora pronta.");
+}
+})
+
+
 
     
 
